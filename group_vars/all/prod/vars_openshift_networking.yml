@@ -1,0 +1,312 @@
+---
+ocp_networking_enabled: true
+ocp_networking_ocp_version: '4.20'
+ocp_networking_network_provider: OVNKubernetes
+ocp_networking_tenants:
+- connectivity:
+    egress_ip:
+      addresses: []
+      enabled: false
+      namespace_selector: {}
+      pod_selector: {}
+  id: e0587467-abcf-49b3-a1a7-573d20659e1c
+  namespaces:
+  - create: true
+    labels: {}
+    name: testing
+  networks:
+  - id: fb56954f-d1a2-48d4-98af-2d4395d79f70
+    ipam:
+      lifecycle: ''
+    join_subnets: []
+    name: testing
+    namespace_selector:
+      matchLabels: {}
+    physical_network: null
+    resource_type: UserDefinedNetwork
+    role: Primary
+    scope: namespace
+    subnets:
+    - cidr: 192.168.90.0/24
+      host_subnet: 0
+    topology: Layer2
+  security:
+    egress_firewall:
+      enabled: false
+      rules: []
+    multi_network_policy:
+      custom_rules: []
+      enabled: false
+      pod_selector: {}
+      template: none
+    network_policy:
+      custom_rules: []
+      enabled: true
+      pod_selector: {}
+      template: default-deny-ingress
+  tenant_name: testing
+- connectivity:
+    egress_ip:
+      addresses: []
+      enabled: false
+      namespace_selector: {}
+      pod_selector: {}
+  id: 44f56c3b-59c1-4c6a-b748-c8e5a5a5b33a
+  namespaces:
+  - create: true
+    labels: {}
+    name: curtis
+  networks:
+  - id: 98b54dd9-3bf8-455b-abcf-21d4e8570d88
+    ipam:
+      lifecycle: ''
+    join_subnets: []
+    name: curtis-network
+    namespace_selector:
+      matchLabels: {}
+    physical_network: null
+    resource_type: UserDefinedNetwork
+    role: Primary
+    scope: namespace
+    subnets:
+    - cidr: 192.168.91.0/24
+      host_subnet: 0
+    topology: Layer2
+  security:
+    egress_firewall:
+      enabled: false
+      rules: []
+    multi_network_policy:
+      custom_rules: []
+      enabled: false
+      pod_selector: {}
+      template: none
+    network_policy:
+      custom_rules: []
+      enabled: true
+      pod_selector: {}
+      template: default-deny-all
+  tenant_name: curtis
+ocp_networking_cluster_security:
+  admin_network_policies: []
+  baseline_admin_network_policy: null
+ocp_networking_physical_networks: []
+ocp_networking_ingress:
+  additional_ingress_controllers: []
+ocp_networking_load_balancing:
+  metallb:
+    address_pools: []
+    bgp_advertisements: []
+    bgp_peers: []
+    enabled: false
+    l2_advertisements: []
+component_config:
+  openshift_networking:
+    hostname: ''
+    storage: ''
+    enabled: true
+    ocp_version: '4.20'
+    network_provider: OVNKubernetes
+    tenants:
+    - id: e0587467-abcf-49b3-a1a7-573d20659e1c
+      tenant_name: testing
+      namespaces:
+      - name: testing
+        create: true
+        labels: {}
+      networks:
+      - id: fb56954f-d1a2-48d4-98af-2d4395d79f70
+        name: testing
+        scope: namespace
+        resource_type: UserDefinedNetwork
+        role: Primary
+        topology: Layer2
+        subnets:
+        - cidr: 192.168.90.0/24
+          host_subnet: 0
+        ipam:
+          lifecycle: ''
+        physical_network: null
+        namespace_selector:
+          matchLabels: {}
+        join_subnets: []
+      security:
+        network_policy:
+          enabled: true
+          template: default-deny-ingress
+          pod_selector: {}
+          custom_rules: []
+        multi_network_policy:
+          enabled: false
+          template: none
+          pod_selector: {}
+          custom_rules: []
+        egress_firewall:
+          enabled: false
+          rules: []
+      connectivity:
+        egress_ip:
+          enabled: false
+          addresses: []
+          namespace_selector: {}
+          pod_selector: {}
+    - id: 44f56c3b-59c1-4c6a-b748-c8e5a5a5b33a
+      tenant_name: curtis
+      namespaces:
+      - name: curtis
+        create: true
+        labels: {}
+      networks:
+      - id: 98b54dd9-3bf8-455b-abcf-21d4e8570d88
+        name: curtis-network
+        scope: namespace
+        resource_type: UserDefinedNetwork
+        role: Primary
+        topology: Layer2
+        subnets:
+        - cidr: 192.168.91.0/24
+          host_subnet: 0
+        ipam:
+          lifecycle: ''
+        physical_network: null
+        namespace_selector:
+          matchLabels: {}
+        join_subnets: []
+      security:
+        network_policy:
+          enabled: true
+          template: default-deny-all
+          pod_selector: {}
+          custom_rules: []
+        multi_network_policy:
+          enabled: false
+          template: none
+          pod_selector: {}
+          custom_rules: []
+        egress_firewall:
+          enabled: false
+          rules: []
+      connectivity:
+        egress_ip:
+          enabled: false
+          addresses: []
+          namespace_selector: {}
+          pod_selector: {}
+    cluster_security:
+      admin_network_policies: []
+      baseline_admin_network_policy: null
+    physical_networks: []
+    ingress:
+      additional_ingress_controllers: []
+    load_balancing:
+      metallb:
+        enabled: false
+        address_pools: []
+        l2_advertisements: []
+        bgp_peers: []
+        bgp_advertisements: []
+    replicas: 1
+hostname: ''
+storage: ''
+enabled: true
+ocp_version: '4.20'
+network_provider: OVNKubernetes
+tenants:
+- id: e0587467-abcf-49b3-a1a7-573d20659e1c
+  tenant_name: testing
+  namespaces:
+  - name: testing
+    create: true
+    labels: {}
+  networks:
+  - id: fb56954f-d1a2-48d4-98af-2d4395d79f70
+    name: testing
+    scope: namespace
+    resource_type: UserDefinedNetwork
+    role: Primary
+    topology: Layer2
+    subnets:
+    - cidr: 192.168.90.0/24
+      host_subnet: 0
+    ipam:
+      lifecycle: ''
+    physical_network: null
+    namespace_selector:
+      matchLabels: {}
+    join_subnets: []
+  security:
+    network_policy:
+      enabled: true
+      template: default-deny-ingress
+      pod_selector: {}
+      custom_rules: []
+    multi_network_policy:
+      enabled: false
+      template: none
+      pod_selector: {}
+      custom_rules: []
+    egress_firewall:
+      enabled: false
+      rules: []
+  connectivity:
+    egress_ip:
+      enabled: false
+      addresses: []
+      namespace_selector: {}
+      pod_selector: {}
+- id: 44f56c3b-59c1-4c6a-b748-c8e5a5a5b33a
+  tenant_name: curtis
+  namespaces:
+  - name: curtis
+    create: true
+    labels: {}
+  networks:
+  - id: 98b54dd9-3bf8-455b-abcf-21d4e8570d88
+    name: curtis-network
+    scope: namespace
+    resource_type: UserDefinedNetwork
+    role: Primary
+    topology: Layer2
+    subnets:
+    - cidr: 192.168.91.0/24
+      host_subnet: 0
+    ipam:
+      lifecycle: ''
+    physical_network: null
+    namespace_selector:
+      matchLabels: {}
+    join_subnets: []
+  security:
+    network_policy:
+      enabled: true
+      template: default-deny-all
+      pod_selector: {}
+      custom_rules: []
+    multi_network_policy:
+      enabled: false
+      template: none
+      pod_selector: {}
+      custom_rules: []
+    egress_firewall:
+      enabled: false
+      rules: []
+  connectivity:
+    egress_ip:
+      enabled: false
+      addresses: []
+      namespace_selector: {}
+      pod_selector: {}
+cluster_security:
+  admin_network_policies: []
+  baseline_admin_network_policy: null
+physical_networks: []
+ingress:
+  additional_ingress_controllers: []
+load_balancing:
+  metallb:
+    enabled: false
+    address_pools: []
+    l2_advertisements: []
+    bgp_peers: []
+    bgp_advertisements: []
+replicas: 1
